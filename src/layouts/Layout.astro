@@ -1,0 +1,73 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="Sofía Piccaluga - Arquitectura contemporánea"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Sofía Piccaluga</title>
+  </head>
+  <body class="min-h-screen bg-white">
+    <Navbar />
+    <main class="pt-16">
+      <slot />
+    </main>
+    <footer class="bg-gray-900 text-white py-12 mt-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-serif mb-4">Sofía Piccaluga</h3>
+            <p class="text-gray-400">Arquitectura contemporánea</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-serif mb-4">Contacto</h3>
+            <p class="text-gray-400">Email: info@sofiapiccaluga.com</p>
+            <p class="text-gray-400">Tel: +1234567890</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-serif mb-4">Ubicación</h3>
+            <p class="text-gray-400">Ciudad, País</p>
+          </div>
+        </div>
+        <div
+          class="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400"
+        >
+          <p>
+            &copy; {new Date().getFullYear()} Sofía Piccaluga. Todos los derechos
+            reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>
