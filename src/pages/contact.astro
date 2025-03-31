@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contacto">
+  <!-- Hero Section -->
+  <section class="relative h-[60vh] flex items-center justify-center">
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/images/hero.jpg"
+        alt="Contacto Sofía Piccaluga"
+        class="w-full h-full object-cover"
+      />
+      <div class="absolute inset-0 bg-black/50"></div>
+    </div>
+    <div class="relative z-10 text-center text-white px-4">
+      <h1 class="text-5xl md:text-7xl font-serif mb-6">Contacto</h1>
+      <p class="text-xl md:text-2xl">Creemos algo extraordinario juntos</p>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-3xl font-serif text-center mb-12">
+          Información de Contacto
+        </h2>
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-xl font-serif mb-2">Dirección</h3>
+            <p class="text-gray-600">
+              Av. Santa Fe 1234<br />
+              Palermo, CABA<br />
+              Buenos Aires, Argentina
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-serif mb-2">Email</h3>
+            <p class="text-gray-600">
+              <a
+                href="mailto:info@sofiapiccaluga.com"
+                class="hover:text-gray-900 transition-colors duration-200"
+              >
+                info@sofiapiccaluga.com
+              </a>
+            </p>
+          </div>
+          <div>
+            <h3 class="text-xl font-serif mb-2">Teléfono</h3>
+            <p class="text-gray-600">
+              <a
+                href="tel:+5491123456789"
+                class="hover:text-gray-900 transition-colors duration-200"
+              >
+                +54 9 11 2345-6789
+              </a>
+            </p>
+          </div>
+        </div>
+
+        <!-- Map -->
+        <div class="mt-12 aspect-w-16 aspect-h-9">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3284.016887889517!2d-58.397345!3d-34.588155!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bcca8b4ef09f57%3A0xa0be381efd09fbd7!2sAv.%20Santa%20Fe%201234%2C%20C1425%20CABA!5e0!3m2!1ses-419!2sar!4v1234567890"
+            width="100%"
+            height="100%"
+            style="border: 0"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

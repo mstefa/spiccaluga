@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import projectsData from '../data/projects.json';
+
+const { projects, categories } = projectsData;
+---
+
+<Layout title="Projects">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <h1 class="text-4xl font-serif text-center mb-12">Projects</h1>
+
+    <!-- Filters -->
+    <div class="flex justify-center space-x-4 mb-12">
+      {
+        categories.map((category) => (
+          <button class="px-6 py-2 rounded-full border border-gray-300 hover:border-gray-900 transition-colors duration-200">
+            {category}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {projects.map((project) => <ProjectCard {...project} />)}
+    </div>
+  </div>
+</Layout>

@@ -1,93 +1,70 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import projectsData from '../data/projects.json';
 
-const featuredProjects = [
-  {
-    title: 'Casa Moderna',
-    description:
-      'Diseño residencial contemporáneo con énfasis en la luz natural y espacios abiertos',
-    imageUrl: '/images/project1.png',
-    location: 'Ciudad, País',
-    year: '2023',
-  },
-  {
-    title: 'Edificio Comercial',
-    description: 'Centro comercial con fachada dinámica y espacios flexibles',
-    imageUrl: '/images/project2.png',
-    location: 'Ciudad, País',
-    year: '2022',
-  },
-  {
-    title: 'Villa Minimalista',
-    description:
-      'Residencia de lujo con diseño minimalista y materiales naturales',
-    imageUrl: '/images/project3.png',
-    location: 'Ciudad, País',
-    year: '2023',
-  },
-];
+const featuredProjects = projectsData.projects.filter(
+  (project) => project.featured
+);
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout title="Inicio">
+<Layout title="Home">
   <!-- Hero Section -->
   <section class="relative h-screen flex items-center justify-center">
     <div class="absolute inset-0 z-0">
       <img
         src="/images/hero.jpg"
-        alt="Arquitectura moderna"
+        alt="Modern Architecture"
         class="w-full h-full object-cover"
       />
       <div class="absolute inset-0 bg-black/50"></div>
     </div>
     <div class="relative z-10 text-center text-white px-4">
-      <h1 class="text-5xl md:text-7xl font-serif mb-6">Sofía Piccaluga</h1>
-      <p class="text-xl md:text-2xl mb-8">Arquitectura contemporánea</p>
+      <h1 class="text-5xl md:text-7xl font-serif mb-6">Sofia Piccaluga</h1>
+      <p class="text-xl md:text-2xl mb-8">Contemporary Architecture</p>
       <a
-        href="/proyectos"
+        href="/projects"
         class="inline-block bg-white text-gray-900 px-8 py-3 rounded-md hover:bg-gray-100 transition-colors duration-200"
       >
-        Ver Proyectos
+        View Projects
       </a>
     </div>
   </section>
 
-  <!-- Proyectos Destacados -->
+  <!-- Featured Projects -->
   <section class="py-20 bg-gray-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <h2 class="text-3xl font-serif text-center mb-12">
-        Proyectos Destacados
-      </h2>
+      <h2 class="text-3xl font-serif text-center mb-12">Featured Projects</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {featuredProjects.map((project) => <ProjectCard {...project} />)}
       </div>
     </div>
   </section>
 
-  <!-- Sobre Mí -->
+  <!-- About Section -->
   <section class="py-20">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div>
-          <h2 class="text-3xl font-serif mb-6">Sobre Mí</h2>
+          <h2 class="text-3xl font-serif mb-6">About Me</h2>
           <p class="text-gray-600 mb-4">
-            Como arquitecta independiente, me especializo en crear espacios que
-            inspiran y transforman. Mi enfoque combina innovación con
-            funcionalidad, siempre respetando el contexto y las necesidades
-            específicas de cada proyecto.
+            As an independent architect, I specialize in creating spaces that
+            inspire and transform. My approach combines innovation with
+            functionality, always respecting the context and specific needs of
+            each project.
           </p>
           <p class="text-gray-600">
-            Con años de experiencia en el campo, he desarrollado una reputación
-            por la excelencia en el diseño y la atención al detalle.
+            With years of experience in the field, I have developed a reputation
+            for excellence in design and attention to detail.
           </p>
         </div>
         <div class="aspect-w-16 aspect-h-9">
           <img
             src="/images/about.jpg"
-            alt="Sofía Piccaluga"
+            alt="Sofia Piccaluga"
             class="object-cover w-full h-full"
           />
         </div>
