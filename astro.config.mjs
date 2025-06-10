@@ -9,5 +9,5 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   site: 'https://mstefa.github.io',
-  base: '/spiccaluga',
+  base: '',
 });
