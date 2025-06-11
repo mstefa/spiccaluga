@@ -2,49 +2,49 @@
   "projects": [
     {
       "id": "modern-house",
-      "title": "Modern House",
-      "description": "Contemporary residential design with emphasis on natural light and open spaces",
+      "title": "Casa Moderna",
+      "description": "Diseño residencial contemporáneo con énfasis en la luz natural y espacios abiertos",
       "imageUrl": "/images/project1.png",
-      "location": "City, Country",
+      "location": "Buenos Aires, Argentina",
       "year": "2023",
-      "category": "Residential",
+      "category": "Residencial",
       "featured": true
     },
     {
-      "id": "commercial-building",
-      "title": "Commercial Building",
-      "description": "Shopping center with dynamic facade and flexible spaces",
+      "id": "Comercial-building",
+      "title": "Edificio Comercial",
+      "description": "Centro comercial con fachada dinámica y espacios flexibles",
       "imageUrl": "/images/project2.png",
-      "location": "City, Country",
+      "location": "Buenos Aires, Argentina",
       "year": "2022",
-      "category": "Commercial",
+      "category": "Comercial",
       "featured": true
     },
     {
       "id": "minimalist-villa",
-      "title": "Minimalist Villa",
-      "description": "Luxury residence with minimalist design and natural materials",
+      "title": "Villa Minimalista",
+      "description": "Residencia de lujo con diseño minimalista y materiales naturales",
       "imageUrl": "/images/project3.png",
-      "location": "City, Country",
+      "location": "Buenos Aires, Argentina",
       "year": "2023",
-      "category": "Residential",
+      "category": "Residencial",
       "featured": true
     },
     {
       "id": "corporate-offices",
-      "title": "Corporate Offices",
-      "description": "Modern workspace with collaborative areas",
+      "title": "Oficinas Corporativas",
+      "description": "Espacio de trabajo moderno con áreas colaborativas",
       "imageUrl": "/images/project4.png",
-      "location": "City, Country",
+      "location": "Buenos Aires, Argentina",
       "year": "2023",
-      "category": "Commercial",
+      "category": "Comercial",
       "featured": false
     }
   ],
   "categories": [
-    "All",
-    "Residential",
-    "Commercial",
+    "Todos",
+    "Residencial",
+    "Comercial",
     "Cultural"
   ]
 }

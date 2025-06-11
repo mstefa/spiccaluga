@@ -1,0 +1,19 @@
+{
+  "address": {
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "street": "Av. Santa Fe",
+    "number": "1234",
+    "floor": "5",
+    "apartment": "B"
+  },
+  "email": "pic.sofi@gmail.com",
+  "phone": "+54 9 11 53493797",
+  "phone_link": "+5491153493797",
+  "hero": {
+    "title": "Contacto",
+    "subtitle": "Creemos algo extraordinario juntos",
+    "image": "/images/hero.jpg",
+    "alt": "Contacto Sofía Piccaluga"
+  }
+}

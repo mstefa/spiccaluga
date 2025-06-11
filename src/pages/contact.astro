@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import contact from '../data/contact.json';
 ---
 
 <Layout title="Contacto">
@@ -29,16 +30,19 @@ import Layout from '../layouts/Layout.astro';
         <div class="space-y-8">
           <div>
             <h3 class="text-xl font-serif mb-2">Dirección</h3>
-            <p class="text-gray-600">Buenos Aires, Argentina</p>
+            <p class="text-gray-600">
+              {contact.address.city}
+              {contact.address.country}
+            </p>
           </div>
           <div>
             <h3 class="text-xl font-serif mb-2">Email</h3>
             <p class="text-gray-600">
               <a
-                href="mailto:pic.sofi@gmail.com"
+                href="mailto:{contact.email}"
                 class="hover:text-gray-900 transition-colors duration-200"
               >
-                pic.sofi@gmail.com
+                {contact.email}
               </a>
             </p>
           </div>
@@ -46,10 +50,12 @@ import Layout from '../layouts/Layout.astro';
             <h3 class="text-xl font-serif mb-2">Teléfono</h3>
             <p class="text-gray-600">
               <a
-                href="tel:+5491123456789"
+                href="https://wa.me/{contact.phone_link}"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="hover:text-gray-900 transition-colors duration-200"
               >
-                +54 9 11 2345-6789
+                {contact.phone}
               </a>
             </p>
           </div>
