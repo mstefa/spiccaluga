@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio de Identidad Visual — Sofía Piccaluga</title>
+    <!-- Tailwind CSS para el diseño responsivo de alto nivel -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts para tipografías premium y de arquitectura -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+    <!-- FontAwesome para íconos interactivos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .serif-logo {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.15em;
+        }
+        /* Transiciones fluidas */
+        .transition-all-300 {
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        /* Textura sutil de papel para el fondo claro inspirado en Perlino Bianco */
+        .bg-perlino {
+            background-color: #f5f3ee;
+            background-image: radial-gradient(#dfdbd3 0.75px, transparent 0.75px), radial-gradient(#dfdbd3 0.75px, #f5f3ee 0.75px);
+            background-size: 24px 24px;
+            background-position: 0 0, 12px 12px;
+        }
+        /* Fondo Blueprint para el plano técnico */
+        .bg-blueprint {
+            background-color: #0b1e36;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+            background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333333;
+            border-radius: 3px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #444444;
+        }
+    </style>
+</head>
+<body class="bg-[#0f0f0f] text-gray-200 min-h-screen flex flex-col selection:bg-[#c4a070] selection:text-[#121212] overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="border-b border-[#222] px-6 py-4 md:px-12 flex justify-between items-center bg-[#141414] sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 rounded border border-[#c4a070] flex items-center justify-center text-xs text-[#c4a070] font-light">
+                SP
+            </div>
+            <div>
+                <h1 class="text-xs uppercase tracking-[0.25em] font-semibold text-white">Sofía Piccaluga</h1>
+                <p class="text-[10px] uppercase tracking-[0.15em] text-[#8a8a8a]">Estudio de Identidad Visual y Materialidad v2.0</p>
+            </div>
+        </div>
+        <div class="text-xs text-[#8a8a8a] hidden sm:flex items-center gap-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            Lienzo Vectorial & Muestrario de Acabados
+        </div>
+    </header>
+
+    <!-- Main Workspace -->
+    <main class="flex-1 flex flex-col lg:flex-row">
+        
+        <!-- Left Column: Interactive Canvas & Application Mocks -->
+        <div class="flex-1 p-4 md:p-8 flex flex-col justify-between items-center relative min-h-[500px] lg:min-h-0 border-r border-[#222] bg-[#0c0c0c]">
+            
+            <!-- Canvas Controls Overlay (Top) -->
+            <div class="w-full flex flex-wrap gap-3 justify-between items-center mb-6 z-10">
+                <!-- Color Background Presets -->
+                <div class="flex flex-col gap-1.5">
+                    <span class="text-[9px] uppercase tracking-wider text-gray-400 font-semibold">1. Entorno de Fondo (Lienzo)</span>
+                    <div class="flex items-center space-x-1.5 bg-[#161616] p-1 rounded-lg border border-[#262626]">
+                        <button onclick="setTheme('dark')" id="btn-theme-dark" class="px-3 py-1 text-xs rounded transition-all-300 bg-[#262626] text-white flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-[#121212] border border-gray-600"></span>
+                            Oscuro MATE
+                        </button>
+                        <button onclick="setTheme('perlino')" id="btn-theme-perlino" class="px-3 py-1 text-xs rounded transition-all-300 text-gray-400 hover:text-white flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-[#f5f3ee] border border-gray-400"></span>
+                            Perlino Bianco
+                        </button>
+                        <button onclick="setTheme('blueprint')" id="btn-theme-blueprint" class="px-3 py-1 text-xs rounded transition-all-300 text-gray-400 hover:text-white flex items-center gap-1.5">
+                            <span class="w-2 h-2 rounded-full bg-[#0b1e36] border border-[#1e40af]"></span>
+                            Plano Técnico
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Construction Guides Toggle -->
+                <div class="flex flex-col gap-1.5 justify-end">
+                    <span class="text-[9px] uppercase tracking-wider text-gray-400 font-semibold lg:text-right">Geometría de Trazado</span>
+                    <button onclick="toggleGuides()" id="btn-guides" class="px-3.5 py-1.5 bg-[#161616] hover:bg-[#202020] text-xs rounded-lg border border-[#262626] flex items-center gap-2 transition-all-300 text-gray-300">
+                        <i class="fa-solid fa-drafting-compass text-[#c4a070]"></i>
+                        <span>Ver Líneas Guía</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic SVG Container -->
+            <div id="canvas-bg" class="w-full max-w-xl aspect-square rounded-2xl border border-[#222] bg-[#141414] flex items-center justify-center p-6 md:p-12 transition-all-300 shadow-2xl relative overflow-hidden">
+                <!-- Watermark Background Grid when in dark/perlino mode -->
+                <div id="grid-overlay" class="absolute inset-0 opacity-[0.03] pointer-events-none transition-all-300" style="background-image: radial-gradient(circle, white 1px, transparent 1px); background-size: 24px 24px;"></div>
+                
+                <!-- THE SVG LOGO - INTEGRATING THE EXACT HIGH-FIDELITY PATH PROVIDED BY THE USER -->
+                <svg id="logo-svg" viewBox="0 0 500 500" class="w-full h-full max-h-[380px] transition-all-300" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <!-- 1. Bronce Florentino Clásico (Brillante/Contraste original) -->
+                        <linearGradient id="bronceFlorentino" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#5a4225" />
+                            <stop offset="35%" stop-color="#93724a" />
+                            <stop offset="70%" stop-color="#c4a070" />
+                            <stop offset="100%" stop-color="#7e5d36" />
+                        </linearGradient>
+
+                        <!-- 2. NUEVO: Bronce Satinado Mate (Discreto, baja especularidad, cálido y elegante) -->
+                        <linearGradient id="bronceSatinado" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#524335" />
+                            <stop offset="40%" stop-color="#7A6856" />
+                            <stop offset="70%" stop-color="#948270" />
+                            <stop offset="100%" stop-color="#665647" />
+                        </linearGradient>
+                        
+                        <!-- 3. Oro Champán Soft (Suave y pálido, brillo minimalista) -->
+                        <linearGradient id="oroChampan" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#8C8176" />
+                            <stop offset="50%" stop-color="#BDB2A6" />
+                            <stop offset="100%" stop-color="#9E9286" />
+                        </linearGradient>
+
+                        <!-- 4. Grafito / Antracita Texturado (Industrial sutil) -->
+                        <linearGradient id="grafito" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#282828" />
+                            <stop offset="50%" stop-color="#4F4F4F" />
+                            <stop offset="100%" stop-color="#333333" />
+                        </linearGradient>
+
+                        <!-- 5. NUEVO: Bronce Pavonado / Negro Ceniza (Negro profundo con sutiles matices bronceados) -->
+                        <linearGradient id="broncePavonado" x1="0%" y1="100%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#12100e" />
+                            <stop offset="50%" stop-color="#26211c" />
+                            <stop offset="100%" stop-color="#191613" />
+                        </linearGradient>
+
+                        <!-- Gradiente de Guía Técnico para el blueprint -->
+                        <linearGradient id="guideBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.5"/>
+                            <stop offset="100%" stop-color="#818cf8" stop-opacity="0.5"/>
+                        </linearGradient>
+
+                        <!-- Filtro de sombra sutil para darle tridimensionalidad física -->
+                        <filter id="subtle-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                            <feDropShadow dx="0" dy="4" stdDeviation="3" flood-color="#000000" flood-opacity="0.25" />
+                        </filter>
+                    </defs>
+
+                    <!-- FONDO DEL SVG (Oculto por defecto para mantenerlo transparente al descargar, pero interactivo) -->
+                    <rect id="svg-export-bg" width="500" height="500" fill="transparent" transition="all 0.3s"/>
+
+                    <!-- GRUPO PRINCIPAL LOGOTIPO -->
+                    <g id="logo-main-group">
+                        
+                        <!-- MONOGRAMA EN BRONCE - UTILIZANDO EXACTAMENTE TU TRAZADO VECTORIAL -->
+                        <g id="monogram-group" transform="translate(101.3, 90) scale(1.5)" filter="url(#subtle-shadow)" class="transition-all-300">
+                            
+                            <!-- GRUPO DE GUÍAS TÉCNICAS INTERNAS (Se escalan perfectamente con el monograma) -->
+                            <g id="construction-guides" class="opacity-0 transition-opacity duration-300 pointer-events-none">
+                                <!-- Proporciones de encuadre en base a tus coordenadas reales -->
+                                <rect x="2.2" y="2.8" width="195.1" height="128.3" fill="none" stroke="url(#guideBlue)" stroke-width="0.5" stroke-dasharray="2,2"/>
+                                <!-- Eje central vertical de la P -->
+                                <line x1="106.8" y1="0" x2="106.8" y2="156" stroke="url(#guideBlue)" stroke-dasharray="1,1" stroke-width="0.5"/>
+                                <!-- Eje central de alineación de la S -->
+                                <line x1="51.2" y1="0" x2="51.2" y2="156" stroke="url(#guideBlue)" stroke-dasharray="1,1" stroke-width="0.5"/>
+                                <!-- Círculos constructivos de tangencia áurea -->
+                                <circle cx="132" cy="65" r="45" fill="none" stroke="url(#guideBlue)" stroke-dasharray="2,2" stroke-width="0.5"/>
+                                <circle cx="51" cy="74" r="50" fill="none" stroke="url(#guideBlue)" stroke-dasharray="2,2" stroke-width="0.5"/>
+                                
+                                <text x="110" y="15" fill="#38bdf8" font-size="6" font-family="monospace" opacity="0.8">EJE_P</text>
+                                <text x="10" y="15" fill="#38bdf8" font-size="6" font-family="monospace" opacity="0.8">EJE_S</text>
+                            </g>
+
+                            <!-- TU VECTOR ORIGINAL EXACTO (Inyectado sin alterar un solo decimal) -->
+                            <path
+                                id="mono-path"
+                                fill="url(#bronceFlorentino)"
+                                stroke-width="0.10026"
+                                d="m 2.2247636,131.12549 v -25.61704 h 11.2914494 11.29145 l 1.328909,1.31187 c 7.716489,7.61756 17.964279,12.38858 29.231406,13.60915 10.420651,1.12887 18.753234,-0.8245 23.534982,-5.51717 2.63062,-2.58161 3.944892,-5.34214 4.242701,-8.91142 C 83.524592,101.45915 81.62756,97.201199 77.951475,94.342432 73.896471,91.189004 68.583658,89.205522 56.552222,86.353293 46.113709,83.878683 42.115939,82.70076 37.516413,80.744476 27.701937,76.570158 21.803364,70.41492 19.752317,62.207397 17.957816,55.02649 18.895148,46.887769 22.216576,40.810456 25.644953,34.537449 31.691392,29.409171 39.28191,26.3365 c 4.209966,-1.704214 9.157477,-2.924318 14.136992,-3.486327 l 0.616793,-0.06957 V 12.80855 2.8364952 l 70.536885,0.025486 70.53686,0.025487 0.0244,20.0658298 0.0244,20.065829 -0.47826,-0.96764 c -1.40701,-2.846738 -3.57663,-5.985759 -5.89069,-8.52262 l -1.13091,-1.239838 V 21.484253 10.679502 h -63.0611 -63.061304 v 5.952393 5.952393 l 0.419423,0.05392 c 0.23068,0.02967 0.819105,0.08089 1.307599,0.113889 1.533462,0.10367 4.297497,0.44609 6.165899,0.763785 10.433958,1.774172 19.205844,5.648525 26.697042,11.791524 0.651335,0.534122 1.19892,0.982674 1.216844,0.996795 0.05726,0.04519 -1.167924,1.891215 -7.431064,11.196605 -0.641004,0.952361 -1.173028,1.741939 -1.182277,1.754608 -0.0087,0.01268 -0.65777,-0.485574 -1.441162,-1.1072 -7.043707,-5.589277 -14.893211,-8.947864 -23.8279,-10.19529 -1.320843,-0.184415 -2.071124,-0.221142 -4.58897,-0.224652 -3.387214,-0.0049 -4.592418,0.111674 -7.398974,0.714585 -10.297381,2.212037 -16.111622,7.792571 -16.122999,15.474936 -0.0087,6.045289 3.583973,9.9297 12.074231,13.053725 3.35185,1.233328 6.523072,2.125284 14.605745,4.108077 8.42329,2.066369 11.854306,3.01426 15.271021,4.218987 6.543996,2.307395 11.281777,5.111767 15.061626,8.915224 4.91424,4.944909 7.46135,11.629875 7.471681,19.609664 0.01,8.05775 -2.594921,14.86114 -7.797596,20.36186 -9.017255,9.53381 -24.501952,13.55386 -41.985267,10.89998 -11.501029,-1.74579 -22.828216,-6.83674 -30.654456,-13.77748 -1.382684,-1.22623 -3.250937,-3.13396 -3.455539,-3.52852 -0.10556,-0.20366 -0.01406,-0.39689 0.897164,-1.89446 0.558115,-0.91724 1.111262,-1.8052 1.229229,-1.97327 0.118004,-0.16806 0.24584,-0.36287 0.284192,-0.43289 0.05527,-0.1009 -0.818681,-0.12732 -4.229284,-0.12732 H 9.8231117 l 0.024896,17.85044 0.02502,17.85043 H 51.223077 92.573128 l 0.02539,-7.41009 0.0254,-7.4101 h 3.749476 3.749486 v 11.25528 11.25519 H 51.173759 2.2247636 Z M 106.82191,125.09047 c -0.0112,-30.095189 -0.009,-66.85761 0.005,-89.6851 l 0.006,-10.465816 23.66032,4.19e-4 c 15.0946,3.07e-4 24.16052,0.03792 25.04195,0.104167 14.56758,1.094408 26.49128,7.929584 32.42286,18.586131 3.84866,6.914394 5.28079,16.309677 3.80398,24.954965 -2.87643,16.838356 -14.73087,27.603954 -33.41425,30.345102 -3.82429,0.561086 -4.08746,0.56851 -20.17445,0.56851 h -14.85959 v 28.621852 28.62182 h -8.24042 -8.2404 z m 48.81255,-41.147431 c 4.94673,-0.842472 8.31844,-2.048713 11.05299,-3.954258 4.68658,-3.265777 7.40752,-7.761138 8.45142,-13.962857 0.30052,-1.785364 0.32712,-5.875847 0.0499,-7.677266 -0.72311,-4.69934 -2.37689,-8.198953 -5.29467,-11.204275 -4.05355,-4.175142 -9.10876,-6.294923 -16.03602,-6.724291 -1.17248,-0.07264 -6.65788,-0.09973 -16.13541,-0.07966 l -14.35903,0.03053 -0.025,21.928318 -0.025,21.928306 15.51892,-0.033 c 15.32745,-0.03263 15.53473,-0.0357 16.80184,-0.251492 z m -25.41203,61.544291 v -11.2552 h 3.75013 3.75012 v 7.43487 7.43487 l 24.94326,-0.0248 24.94324,-0.0248 0.0251,-14.23451 0.0251,-14.23452 h -11.00399 -11.00401 v -3.81963 -3.81965 h 11.00365 11.00368 V 102.48999 92.03602 l 0.66615,-0.724828 c 2.0826,-2.266002 4.79674,-6.375088 6.24335,-9.452264 l 0.58979,-1.254555 v 38.069097 38.06905 h -32.46735 -32.46819 z"
+                            />
+                        </g>
+
+                        <!-- COMPONENTES DE TEXTO (Alineados milimétricamente con el monograma central) -->
+                        <g id="text-group" opacity="1" class="transition-all-300">
+                            <!-- Nombre Principal -->
+                            <text id="txt-name" x="250" y="380" text-anchor="middle" fill="url(#bronceFlorentino)" font-family="'Cormorant Garamond', serif" font-size="21" font-weight="400" letter-spacing="0.25em">SOFÍA PICCALUGA</text>
+                            
+                            <!-- Subtítulo -->
+                            <text id="txt-sub" x="250" y="410" text-anchor="middle" fill="#8a8a8a" font-family="'Montserrat', sans-serif" font-size="9" font-weight="300" letter-spacing="0.45em">ARQUITECTURA &amp; DISEÑO</text>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- Application Context Mockups Area -->
+            <div class="w-full max-w-xl mt-6">
+                <h3 class="text-[10px] font-semibold text-gray-400 tracking-[0.2em] uppercase mb-3">Aplicaciones de Obra y Estudio</h3>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    
+                    <!-- Paper Mockup -->
+                    <div class="bg-[#141414] border border-[#222] p-3.5 rounded-xl flex flex-col justify-between h-28 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-[#f5f3ee] opacity-10 group-hover:opacity-20 transition-all-300"></div>
+                        <span class="text-[8px] uppercase tracking-wider text-[#c4a070] z-10 font-bold">Papelería Corporativa</span>
+                        <div class="flex items-center space-x-1.5 z-10">
+                            <span class="w-3 h-3 rounded-full border border-gray-400 flex items-center justify-center text-[5px] text-[#8e7c67] font-semibold">sp</span>
+                            <span class="text-[6px] text-gray-500 uppercase tracking-widest">S. Piccaluga — Carta MATE</span>
+                        </div>
+                        <p class="text-[8px] text-gray-400 leading-snug z-10">Relieve seco en papel texturado Perlino Bianco.</p>
+                    </div>
+
+                    <!-- Brass Signboard Mockup -->
+                    <div class="bg-[#141414] border border-[#222] p-3.5 rounded-xl flex flex-col justify-between h-28 relative overflow-hidden group">
+                        <!-- Simulated Brushed metal finish with gradients -->
+                        <div class="absolute inset-0 bg-gradient-to-br from-[#2a251f] via-[#1a1714] to-[#12100e] opacity-90 group-hover:opacity-100 transition-all-300"></div>
+                        <span class="text-[8px] uppercase tracking-wider text-[#948270] z-10 font-bold">Placa de Entrada</span>
+                        <div class="flex items-center space-x-1.5 z-10">
+                            <i class="fa-solid fa-hotel text-[8px] text-[#948270]"></i>
+                            <span class="text-[6px] text-gray-400 uppercase tracking-widest">Estudio de Arquitectura</span>
+                        </div>
+                        <p class="text-[8px] text-gray-400 leading-snug z-10">Plancha maciza fresada con acabado Bronce Satinado.</p>
+                    </div>
+
+                    <!-- Blueprint Stamp Mockup -->
+                    <div class="bg-[#141414] border border-[#222] p-3.5 rounded-xl flex flex-col justify-between h-28 relative overflow-hidden group">
+                        <div class="absolute inset-0 bg-[#0b1e36] opacity-70 group-hover:opacity-90 transition-all-300"></div>
+                        <span class="text-[8px] uppercase tracking-wider text-sky-400 z-10 font-bold">Sello de Plano</span>
+                        <div class="flex items-center space-x-1.5 z-10">
+                            <i class="fa-solid fa-map text-[8px] text-sky-400"></i>
+                            <span class="text-[6px] text-sky-300/80 uppercase tracking-widest">Borlasca / Guido</span>
+                        </div>
+                        <p class="text-[8px] text-gray-400 leading-snug z-10">Tinta blanca técnica sobre plano heliográfico.</p>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Canvas Info Footer -->
+            <div class="w-full flex justify-between items-center mt-6 text-[10px] text-gray-500 z-10">
+                <span id="canvas-status">Visualizando: <b>Isologotipo Completo</b></span>
+                <span>Renderizado: <b>Vectorial Inteligente (.svg)</b></span>
+            </div>
+        </div>
+
+        <!-- Right Column: Controls & Portfolio Context -->
+        <div class="w-full lg:w-[450px] bg-[#121212] p-6 md:p-8 flex flex-col justify-between overflow-y-auto border-l border-[#222]">
+            
+            <div class="space-y-6">
+                <!-- Section Title -->
+                <div>
+                    <span class="text-[10px] font-semibold text-[#c4a070] tracking-[0.2em] uppercase">Muestrario Exclusivo</span>
+                    <h2 class="text-xl font-light text-white tracking-wide mt-1">Materialidad y Composición</h2>
+                    <p class="text-xs text-gray-400 mt-2 leading-relaxed">
+                        Explora la interacción de la marca de tu estudio con diferentes acabados metálicos y soportes constructivos inspirados en la sobriedad de tus planos.
+                    </p>
+                </div>
+
+                <!-- 2. NEW OPTION BLOCK: Material / Metal Finish Selector -->
+                <div class="space-y-3">
+                    <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">
+                        2. Acabado de Isologotipo (Metales y Soportes)
+                    </label>
+                    <div class="grid grid-cols-1 gap-2">
+                        
+                        <!-- Opción NUEVA: Bronce Satinado (Discreto / Mate) -->
+                        <button onclick="setFinish('satinado')" id="finish-satinado" class="w-full text-left p-3.5 rounded-xl border border-[#c4a070] bg-[#1e1b17] transition-all-300 flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#524335] via-[#7A6856] to-[#948270] shadow-inner border border-[#c4a070]/20"></div>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-[#c4a070]">Bronce Satinado — Mate</h4>
+                                    <p class="text-[10px] text-gray-300 mt-0.5">Discreto, menor contraste, brillo pulido ultra elegante.</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-circle-check text-xs text-[#c4a070]" id="check-satinado"></i>
+                        </button>
+
+                        <!-- Opción Original: Bronce Florentino -->
+                        <button onclick="setFinish('florentino')" id="finish-florentino" class="w-full text-left p-3.5 rounded-xl border border-[#262626] bg-[#161616] hover:bg-[#1e1e1e] transition-all-300 flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#5a4225] via-[#93724a] to-[#c4a070] shadow-inner border border-[#c4a070]/30"></div>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">Bronce Florentino — Original</h4>
+                                    <p class="text-[10px] text-gray-500 mt-0.5">Acabado con contraste dinámico profundo, cálido y escultórico.</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-circle-check text-xs text-[#c4a070] hidden" id="check-florentino"></i>
+                        </button>
+
+                        <!-- Opción: Oro Champán -->
+                        <button onclick="setFinish('champan')" id="finish-champan" class="w-full text-left p-3.5 rounded-xl border border-[#262626] bg-[#161616] hover:bg-[#1e1e1e] transition-all-300 flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#8C8176] via-[#BDB2A6] to-[#9E9286] shadow-inner border border-gray-600/30"></div>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">Oro Champán Soft</h4>
+                                    <p class="text-[10px] text-gray-500 mt-0.5">Tono metálico muy suave, minimalismo arquitectónico puro.</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-circle-check text-xs text-[#c4a070] hidden" id="check-champan"></i>
+                        </button>
+
+                        <!-- Opción: Grafito / Antracita -->
+                        <button onclick="setFinish('grafito')" id="finish-grafito" class="w-full text-left p-3.5 rounded-xl border border-[#262626] bg-[#161616] hover:bg-[#1e1e1e] transition-all-300 flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#282828] via-[#4F4F4F] to-[#333333] shadow-inner border-gray-700/50"></div>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">Gris Antracita / Grafito</h4>
+                                    <p class="text-[10px] text-gray-500 mt-0.5">Aspecto crudo industrial, sobrio y con gran peso de herrería.</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-circle-check text-xs text-[#c4a070] hidden" id="check-grafito"></i>
+                        </button>
+
+                        <!-- Opción NUEVA: Bronce Pavonado / Negro Ceniza -->
+                        <button onclick="setFinish('pavonado')" id="finish-pavonado" class="w-full text-left p-3.5 rounded-xl border border-[#262626] bg-[#161616] hover:bg-[#1e1e1e] transition-all-300 flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-[#12100e] via-[#26211c] to-[#191613] shadow-inner border-zinc-700/50"></div>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">Bronce Pavonado / Negro Humo</h4>
+                                    <p class="text-[10px] text-gray-500 mt-0.5">Herrería arquitectónica profunda, negro con sutil matiz cálido.</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-circle-check text-xs text-[#c4a070] hidden" id="check-pavonado"></i>
+                        </button>
+
+                        <!-- Opción: Blanco Tiza (Technical White) -->
+                        <button onclick="setFinish('blanco')" id="finish-blanco" class="w-full text-left p-3.5 rounded-xl border border-[#262626] bg-[#161616] hover:bg-[#1e1e1e] transition-all-300 flex items-center justify-between group">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-7 h-7 rounded-full bg-white shadow-inner border border-gray-300"></div>
+                                <div>
+                                    <h4 class="text-xs font-semibold text-gray-300 group-hover:text-white transition-colors">Blanco Tiza</h4>
+                                    <p class="text-[10px] text-gray-500 mt-0.5">Línea arquitectónica pura, máxima legibilidad técnica.</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-circle-check text-xs text-[#c4a070] hidden" id="check-blanco"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Control: Layout Selector -->
+                <div class="space-y-3">
+                    <label class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">3. Variante de Composición</label>
+                    <div class="grid grid-cols-3 gap-2">
+                        <!-- Option 1: Full Logo -->
+                        <button onclick="changeLayout('full')" id="layout-full" class="p-3 rounded-lg border border-[#c4a070] bg-[#1e1b17] transition-all-300 flex flex-col items-center justify-center gap-1.5 text-center">
+                            <i class="fa-solid fa-grip-lines-vertical text-[#c4a070] text-sm"></i>
+                            <span class="text-[10px] font-semibold text-[#c4a070] block">Completo</span>
+                        </button>
+                        
+                        <!-- Option 2: Horizontal -->
+                        <button onclick="changeLayout('horizontal')" id="layout-horizontal" class="p-3 rounded-lg border border-[#262626] bg-[#161616] hover:bg-[#1e1e1e] transition-all-300 flex flex-col items-center justify-center gap-1.5 text-center">
+                            <i class="fa-solid fa-square-h text-gray-400 text-sm"></i>
+                            <span class="text-[10px] font-semibold text-gray-400 block">Horizontal</span>
+                        </button>
+
+                        <!-- Option 3: Monogram Only -->
+                        <button onclick="changeLayout('symbol')" id="layout-symbol" class="p-3 rounded-lg border border-[#262626] bg-[#161616] hover:bg-[#1e1e1e] transition-all-300 flex flex-col items-center justify-center gap-1.5 text-center">
+                            <i class="fa-solid fa-compass text-gray-400 text-sm"></i>
+                            <span class="text-[10px] font-semibold text-gray-400 block">Símbolo</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Technical Properties (Informativo y Dinámico) -->
+                <div class="bg-[#161616] p-4 rounded-xl border border-[#222] space-y-3">
+                    <h3 class="text-xs font-semibold text-gray-400 uppercase tracking-wider">Concepto Detallado</h3>
+                    <div class="space-y-2.5 text-[11px] text-gray-400">
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-compass-drafting text-[#c4a070] mt-0.5 w-4 text-center"></i>
+                            <span><b>Estructura Racionalista:</b> El isologotipo preserva la rectitud geométrica del estilo de tus planos, con vanos de líneas rectas que fluyen verticalmente.</span>
+                        </div>
+                        <div class="flex items-start gap-2.5">
+                            <i class="fa-solid fa-circle-half-stroke text-[#c4a070] mt-0.5 w-4 text-center"></i>
+                            <span><b>El Bronce Satinado (Mate):</b> Diseñado para evitar brillos excesivos en soportes digitales y físicos. Posee menor contraste que el florentino, transmitiendo un carácter arquitectónico sobrio y atemporal.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Actions block -->
+            <div class="mt-8 space-y-3">
+                <button onclick="downloadSVG()" class="w-full py-3 px-4 bg-gradient-to-r from-[#c4a070] to-[#aa8355] hover:brightness-110 active:scale-[0.98] text-[#121212] font-bold text-xs rounded-lg transition-all duration-150 flex items-center justify-center gap-2 shadow-lg shadow-[#c4a070]/10">
+                    <i class="fa-solid fa-download text-sm"></i>
+                    DESCARGAR SVG VECTORIAL
+                </button>
+                <div class="grid grid-cols-2 gap-2">
+                    <button onclick="copySVGCode()" class="py-2.5 px-3 bg-[#1c1c1c] hover:bg-[#242424] text-gray-300 text-xs rounded-lg transition-all-300 flex items-center justify-center gap-1.5 border border-[#2d2d2d]">
+                        <i class="fa-solid fa-code text-xs text-[#c4a070]"></i>
+                        Copiar Código
+                    </button>
+                    <button onclick="copySVGBase64()" class="py-2.5 px-3 bg-[#1c1c1c] hover:bg-[#242424] text-gray-300 text-xs rounded-lg transition-all-300 flex items-center justify-center gap-1.5 border border-[#2d2d2d]">
+                        <i class="fa-solid fa-copy text-xs text-[#c4a070]"></i>
+                        Copiar Base64
+                    </button>
+                </div>
+                <p class="text-[10px] text-gray-500 text-center mt-2">
+                    Compatible con Adobe Illustrator, Figma, AutoCAD y navegadores modernos.
+                </p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Toast Notification Overlay -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-[#181818] text-white border border-[#c4a070] px-4 py-3 rounded-lg shadow-2xl flex items-center gap-3 translate-y-20 opacity-0 pointer-events-none transition-all duration-300 z-50">
+        <div class="w-6 h-6 rounded-full bg-[#c4a070]/20 flex items-center justify-center text-[#c4a070]">
+            <i class="fa-solid fa-circle-check text-xs"></i>
+        </div>
+        <div>
+            <p class="text-xs font-semibold" id="toast-title">Copiado</p>
+            <p class="text-[10px] text-gray-400" id="toast-desc">El elemento se ha guardado en el portapapeles.</p>
+        </div>
+    </div>
+
+    <!-- Script de control interactivo -->
+    <script>
+        let currentTheme = 'dark';
+        let currentLayout = 'full';
+        let currentFinish = 'satinado'; // Default: El nuevo acabado discreto
+        let guidesVisible = false;
+
+        // Iniciar en el nuevo acabado discreto al cargar la página
+        window.onload = function() {
+            setTheme('dark');
+            setFinish('satinado');
+        };
+
+        // Cambiar entre esquemas de color / entornos de fondo del lienzo
+        function setTheme(theme) {
+            const canvasBg = document.getElementById('canvas-bg');
+            const svgExportBg = document.getElementById('svg-export-bg');
+            const btnDark = document.getElementById('btn-theme-dark');
+            const btnPerlino = document.getElementById('btn-theme-perlino');
+            const btnBlueprint = document.getElementById('btn-theme-blueprint');
+            const gridOverlay = document.getElementById('grid-overlay');
+
+            // Reset buttons
+            [btnDark, btnPerlino, btnBlueprint].forEach(btn => {
+                btn.classList.remove('bg-[#262626]', 'text-white', 'bg-[#1e40af]', 'bg-[#e5e1d7]', 'text-gray-900');
+                btn.classList.add('text-gray-400');
+            });
+
+            // Reset classes on canvas background
+            canvasBg.className = "w-full max-w-xl aspect-square rounded-2xl border flex items-center justify-center p-6 md:p-12 transition-all duration-500 shadow-2xl relative overflow-hidden ";
+
+            if (theme === 'dark') {
+                canvasBg.classList.add('bg-[#141414]', 'border-[#262626]');
+                btnDark.classList.add('bg-[#262626]', 'text-white');
+                gridOverlay.style.opacity = "0.03";
+                svgExportBg.setAttribute('fill', 'transparent'); // Transparente para exportación nativa
+            } else if (theme === 'perlino') {
+                canvasBg.classList.add('bg-perlino', 'border-gray-200');
+                btnPerlino.classList.add('bg-[#e5e1d7]', 'text-gray-900');
+                gridOverlay.style.opacity = "0.08";
+                svgExportBg.setAttribute('fill', '#f5f3ee'); // Mantiene el tono Perlino al exportar
+            } else if (theme === 'blueprint') {
+                canvasBg.classList.add('bg-blueprint', 'border-blue-900');
+                btnBlueprint.classList.add('bg-[#1e40af]', 'text-white');
+                gridOverlay.style.opacity = "0";
+                svgExportBg.setAttribute('fill', '#0b1e36'); // Mantiene el azul blueprint al exportar
+            }
+            currentTheme = theme;
+            
+            // Re-evaluar colores por si afecta contraste
+            applyFinishColor();
+        }
+
+        // Selección de Acabado Metálico
+        function setFinish(finish) {
+            currentFinish = finish;
+
+            const btnSatinado = document.getElementById('finish-satinado');
+            const btnFlorentino = document.getElementById('finish-florentino');
+            const btnChampan = document.getElementById('finish-champan');
+            const btnGrafito = document.getElementById('finish-grafito');
+            const btnPavonado = document.getElementById('finish-pavonado');
+            const btnBlanco = document.getElementById('finish-blanco');
+
+            const checkSatinado = document.getElementById('check-satinado');
+            const checkFlorentino = document.getElementById('check-florentino');
+            const checkChampan = document.getElementById('check-champan');
+            const checkGrafito = document.getElementById('check-grafito');
+            const checkPavonado = document.getElementById('check-pavonado');
+            const checkBlanco = document.getElementById('check-blanco');
+
+            // Reset styling on buttons
+            [btnSatinado, btnFlorentino, btnChampan, btnGrafito, btnPavonado, btnBlanco].forEach(btn => {
+                btn.classList.remove('border-[#c4a070]', 'bg-[#1e1b17]');
+                btn.classList.add('border-[#262626]', 'bg-[#161616]');
+                const label = btn.querySelector('h4');
+                label.classList.remove('text-[#c4a070]');
+                label.classList.add('text-gray-300');
+            });
+
+            // Ocultar todos los checks
+            [checkSatinado, checkFlorentino, checkChampan, checkGrafito, checkPavonado, checkBlanco].forEach(chk => {
+                chk.classList.add('hidden');
+            });
+
+            // Activar botón seleccionado
+            const activeBtn = document.getElementById(`finish-${finish}`);
+            const activeCheck = document.getElementById(`check-${finish}`);
+
+            activeBtn.classList.remove('border-[#262626]', 'bg-[#161616]');
+            activeBtn.classList.add('border-[#c4a070]', 'bg-[#1e1b17]');
+            activeBtn.querySelector('h4').classList.add('text-[#c4a070]');
+            activeCheck.classList.remove('hidden');
+
+            applyFinishColor();
+        }
+
+        // Aplica el gradiente/color seleccionado al SVG real
+        function applyFinishColor() {
+            const monoPath = document.getElementById('mono-path');
+            const txtName = document.getElementById('txt-name');
+            const txtSub = document.getElementById('txt-sub');
+
+            // Si el lienzo es Blueprint, forzamos blanco técnico a menos que usemos blanco ya
+            if (currentTheme === 'blueprint') {
+                monoPath.setAttribute('fill', '#ffffff');
+                txtName.setAttribute('fill', '#ffffff');
+                txtSub.setAttribute('fill', '#93c5fd');
+                return;
+            }
+
+            // Aplicar según el material de acabado
+            switch(currentFinish) {
+                case 'satinado': // NUEVO: Bronce Mate Discreto
+                    monoPath.setAttribute('fill', 'url(#bronceSatinado)');
+                    txtName.setAttribute('fill', 'url(#bronceSatinado)');
+                    txtSub.setAttribute('fill', '#7a6c5d');
+                    break;
+                case 'florentino': // Bronce Original
+                    monoPath.setAttribute('fill', 'url(#bronceFlorentino)');
+                    txtName.setAttribute('fill', 'url(#bronceFlorentino)');
+                    txtSub.setAttribute('fill', '#8a8a8a');
+                    break;
+                case 'champan': // Oro Pálido
+                    monoPath.setAttribute('fill', 'url(#oroChampan)');
+                    txtName.setAttribute('fill', 'url(#oroChampan)');
+                    txtSub.setAttribute('fill', '#7c7267');
+                    break;
+                case 'grafito': // Gris Metal Oscuro
+                    monoPath.setAttribute('fill', 'url(#grafito)');
+                    txtName.setAttribute('fill', 'url(#grafito)');
+                    txtSub.setAttribute('fill', '#666666');
+                    break;
+                case 'pavonado': // NUEVO: Bronce Pavonado / Negro Ceniza
+                    monoPath.setAttribute('fill', 'url(#broncePavonado)');
+                    txtName.setAttribute('fill', 'url(#broncePavonado)');
+                    if (currentTheme === 'perlino') {
+                        txtSub.setAttribute('fill', '#5a524a');
+                    } else {
+                        txtSub.setAttribute('fill', '#524b44');
+                    }
+                    break;
+                case 'blanco': // Blanco Plano Técnico
+                    if (currentTheme === 'perlino') {
+                        // En fondo Perlino Blanco usamos gris grafito para contraste elegante
+                        monoPath.setAttribute('fill', '#333333');
+                        txtName.setAttribute('fill', '#333333');
+                        txtSub.setAttribute('fill', '#777777');
+                    } else {
+                        monoPath.setAttribute('fill', '#ffffff');
+                        txtName.setAttribute('fill', '#ffffff');
+                        txtSub.setAttribute('fill', '#8a8a8a');
+                    }
+                    break;
+            }
+        }
+
+        // Activar/desactivar líneas de guía constructiva
+        function toggleGuides() {
+            const guides = document.getElementById('construction-guides');
+            const btn = document.getElementById('btn-guides');
+            
+            guidesVisible = !guidesVisible;
+            if (guidesVisible) {
+                guides.classList.remove('opacity-0');
+                guides.classList.add('opacity-100');
+                btn.classList.add('bg-[#262626]', 'border-[#c4a070]');
+                btn.querySelector('span').innerText = "Ocultar Líneas Guía";
+            } else {
+                guides.classList.remove('opacity-100');
+                guides.classList.add('opacity-0');
+                btn.classList.remove('bg-[#262626]', 'border-[#c4a070]');
+                btn.querySelector('span').innerText = "Ver Líneas Guía";
+            }
+        }
+
+        // Cambiar la composición del Logo (Full, Horizontal, Símbolo)
+        function changeLayout(layout) {
+            currentLayout = layout;
+            
+            // UI elements
+            const btnFull = document.getElementById('layout-full');
+            const btnHoriz = document.getElementById('layout-horizontal');
+            const btnSym = document.getElementById('layout-symbol');
+
+            // Reset active states
+            [btnFull, btnHoriz, btnSym].forEach(btn => {
+                btn.classList.remove('border-[#c4a070]', 'bg-[#1e1b17]');
+                btn.classList.add('border-[#262626]', 'bg-[#161616]');
+                
+                const icon = btn.querySelector('i');
+                const span = btn.querySelector('span');
+                
+                icon.classList.remove('text-[#c4a070]');
+                icon.classList.add('text-gray-400');
+                span.classList.remove('text-[#c4a070]');
+                span.classList.add('text-gray-400');
+            });
+
+            // Set active Layout styling
+            const activeBtn = document.getElementById(`layout-${layout}`);
+            activeBtn.classList.remove('border-[#262626]', 'bg-[#161616]');
+            activeBtn.classList.add('border-[#c4a070]', 'bg-[#1e1b17]');
+            
+            activeBtn.querySelector('i').classList.add('text-[#c4a070]');
+            activeBtn.querySelector('span').classList.add('text-[#c4a070]');
+
+            const statusText = document.getElementById('canvas-status');
+
+            // SVG Element manipulations
+            const svg = document.getElementById('logo-svg');
+            const monogramGroup = document.getElementById('monogram-group');
+            const textGroup = document.getElementById('text-group');
+            const txtName = document.getElementById('txt-name');
+            const txtSub = document.getElementById('txt-sub');
+
+            // Reset SVG transforms & viewBox
+            monogramGroup.setAttribute('transform', 'translate(0, 0) scale(1)');
+            textGroup.setAttribute('transform', 'translate(0, 0)');
+            textGroup.setAttribute('opacity', '1');
+
+            if (layout === 'full') {
+                svg.setAttribute('viewBox', '0 0 500 500');
+                statusText.innerHTML = "Visualizando: <b>Isologotipo Completo (Vertical)</b>";
+                
+                // Centrado exacto del vector de 197.3x156 con escala 1.5
+                monogramGroup.setAttribute('transform', 'translate(101.3, 90) scale(1.5)');
+                
+                // Reset positions
+                txtName.setAttribute('x', '250');
+                txtName.setAttribute('y', '380');
+                txtName.setAttribute('text-anchor', 'middle');
+                txtName.setAttribute('font-size', '21');
+                
+                txtSub.setAttribute('x', '250');
+                txtSub.setAttribute('y', '410');
+                txtSub.setAttribute('text-anchor', 'middle');
+                txtSub.setAttribute('font-size', '9');
+                
+            } else if (layout === 'horizontal') {
+                svg.setAttribute('viewBox', '0 0 700 320');
+                statusText.innerHTML = "Visualizando: <b>Distribución Horizontal</b>";
+
+                // Desplazar monograma a la izquierda
+                monogramGroup.setAttribute('transform', 'translate(50, 58) scale(1.3)');
+                
+                // Alinear textos a la derecha de manera fluida
+                textGroup.setAttribute('transform', 'translate(340, 0)');
+                
+                txtName.setAttribute('x', '0');
+                txtName.setAttribute('y', '145');
+                txtName.setAttribute('text-anchor', 'start');
+                txtName.setAttribute('font-size', '28');
+                
+                txtSub.setAttribute('x', '0');
+                txtSub.setAttribute('y', '175');
+                txtSub.setAttribute('text-anchor', 'start');
+                txtSub.setAttribute('font-size', '11');
+
+            } else if (layout === 'symbol') {
+                svg.setAttribute('viewBox', '0 0 500 500');
+                statusText.innerHTML = "Visualizando: <b>Monograma Símbolo Puro</b>";
+                
+                // Centrar de manera imponente en escala 2.0
+                monogramGroup.setAttribute('transform', 'translate(52.6, 94) scale(2.0)');
+                textGroup.setAttribute('opacity', '0');
+            }
+        }
+
+        // Obtener el código SVG limpio para exportar libre de guías de desarrollo
+        function getSVGString() {
+            // Clonamos el nodo para no alterar la interactividad en pantalla
+            const svgClone = document.getElementById('logo-svg').cloneNode(true);
+            
+            // Removemos guías internas si se están mostrando antes de exportar
+            const guidesNode = svgClone.querySelector('#construction-guides');
+            if (guidesNode) {
+                guidesNode.remove();
+            }
+
+            const exportBg = svgClone.querySelector('#svg-export-bg');
+            if (currentTheme === 'dark') {
+                // Coloca un fondo oscuro en exportaciones planas para evitar transparencias invisibles en visores
+                exportBg.setAttribute('fill', '#121212');
+            } else if (currentTheme === 'perlino') {
+                exportBg.setAttribute('fill', '#f5f3ee');
+            } else if (currentTheme === 'blueprint') {
+                exportBg.setAttribute('fill', '#0b1e36');
+            }
+
+            const serializer = new XMLSerializer();
+            return serializer.serializeToString(svgClone);
+        }
+
+        // Copiar Código SVG al Portapapeles
+        function copySVGCode() {
+            const svgString = getSVGString();
+            
+            const textarea = document.createElement('textarea');
+            textarea.value = svgString;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast("Código Copiado", "El código XML/SVG está listo en tu portapapeles.");
+            } catch (err) {
+                showToast("Error", "No se pudo copiar de forma automática.", true);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // Copiar Base64 (Ideal para usar directo en etiquetas de imagen <img src="data:...">)
+        function copySVGBase64() {
+            const svgString = getSVGString();
+            const base64 = btoa(unescape(encodeURIComponent(svgString)));
+            const base64String = `data:image/svg+xml;base64,${base64}`;
+
+            const textarea = document.createElement('textarea');
+            textarea.value = base64String;
+            document.body.appendChild(textarea);
+            textarea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast("Data-URI Copiada", "Código Base64 listo para usar en etiquetas <img>.");
+            } catch (err) {
+                showToast("Error", "No se pudo copiar el Base64.", true);
+            }
+            document.body.removeChild(textarea);
+        }
+
+        // Descarga física del archivo .svg vectorial
+        function downloadSVG() {
+            const svgString = getSVGString();
+            const blob = new Blob([svgString], { type: 'image/svg+xml;charset=utf-8' });
+            const blobURL = URL.createObjectURL(blob);
+            
+            const downloadLink = document.createElement('a');
+            downloadLink.href = blobURL;
+            
+            downloadLink.download = `logo-sofia-piccaluga-${currentLayout}-${currentFinish}-${currentTheme}.svg`;
+            document.body.appendChild(downloadLink);
+            downloadLink.click();
+            document.body.removeChild(downloadLink);
+            URL.revokeObjectURL(blobURL);
+            
+            showToast("Descarga Iniciada", "El archivo vectorial se ha guardado en tus descargas.");
+        }
+
+        // Mostrar Toast de notificación Premium
+        function showToast(title, desc, isError = false) {
+            const toast = document.getElementById('toast');
+            const tTitle = document.getElementById('toast-title');
+            const tDesc = document.getElementById('toast-desc');
+
+            tTitle.innerText = title;
+            tDesc.innerText = desc;
+
+            if (isError) {
+                toast.classList.add('border-red-500');
+                toast.classList.remove('border-[#c4a070]');
+            } else {
+                toast.classList.remove('border-red-500');
+                toast.classList.add('border-[#c4a070]');
+            }
+
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+            }, 3500);
+        }
+    </script>
+</body>
+</html>
